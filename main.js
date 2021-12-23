@@ -1,19 +1,20 @@
-let number = 5;
-let anotherNumber = 10;
+const complexСalculations = (number) => {
+  return number;
+};
 
-const memoization = (...args) => {
-  let result = 0;
+const memoization = (func) => {
+  const cache = new Map();
 
-  for (let value of args) {
-    result += value;
-    if(result === 15) {
-      return result + " memo!";
+  return function (param) {
+    if (cache.has(param)) {
+      console.log(`Get from cache ${param}`);
+
+      return cache.get(param);
     }
-  }
-  
-  return result;
-}
 
-console.log(memoization(number, anotherNumber))
+    cache.set(param, func(param));
+    console.log(`Cached ${param}`);
+  };
+};
 
 module.exports = memoization;

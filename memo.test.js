@@ -1,6 +1,6 @@
 const memoization = require('./main');
 
-test('bla-bla i\'m test', () => {
-  expect(memoization(5, 10)).toBe(`${15} memo!`);
+test('test memoization by number', () => {
+  expect(memoization(5)).toBe(`${5} cached`);
+  expect(memoization(5)).toBe(`${5} get from cache`);
 });
-
