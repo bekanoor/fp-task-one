@@ -1,19 +1,21 @@
-const complexСalculations = (number) => {
-  return number;
+const complexСalculations = (something) => {
+  return something;
 };
 
 const memoization = (func) => {
   const cache = new Map();
 
-  return function (param) {
-    if (cache.has(param)) {
-      console.log(`Get from cache ${param}`);
+  return function (...params) {
+    params.map((arg) => {
+      if (cache.has(arg)) {
+        console.log(`Get from cache ${arg}`);
 
-      return cache.get(param);
-    }
+        return cache.get(arg);
+      }
 
-    cache.set(param, func(param));
-    console.log(`Cached ${param}`);
+      cache.set(arg, func(arg));
+      console.log(`Cached ${arg}`);
+    });
   };
 };
 
