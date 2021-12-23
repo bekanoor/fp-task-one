@@ -1,0 +1,16 @@
+{
+  "name": "fp-task-one",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bekanoor/fp-task-one.git",
+  "author": "Eugene ",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "jest": "^27.4.5"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "jest"
+  }
+}
