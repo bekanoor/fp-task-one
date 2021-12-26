@@ -1,13 +1,15 @@
 const memoization = (func) => {
   const cache = new Map();
 
-  return function (...params) {
+  return (...params) => {
     const result = params.map((arg) => {
-      if (cache.has(arg)) return `get from cache ${cache.get(arg)}`;
+      const key = JSON.stringify(arg);
 
-      cache.set(arg, func(arg));
+      if (cache.has(key)) return `get from cache ${cache.get(key)}`;
 
-      return `cached ${arg}`;
+      cache.set(key, func(arg));
+
+      return `cached ${key}`;
     });
 
     return result.join(" ");
