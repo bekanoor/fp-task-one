@@ -2,17 +2,15 @@ const memoization = (func) => {
   const cache = new Map();
 
   return (...params) => {
-    const result = params.map((arg) => {
-      const key = JSON.stringify(arg);
+    const createKey = (arg) => JSON.stringify(arg).split('').sort().join();
 
-      if (cache.has(key)) return `get from cache ${cache.get(key)}`;
+    const key = createKey(params);
 
-      cache.set(key, func(arg));
+    if (cache.has(key)) return `get from cache ${cache.get(key)}`;
 
-      return `cached ${key}`;
-    });
+    cache.set(key, func(...params));
 
-    return result.join(" ");
+    return `cached ${JSON.stringify(params).slice(1, -1)}`;
   };
 };
 
