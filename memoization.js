@@ -13,6 +13,5 @@ const memoization = (func) => {
     return params
   }
 }
-console.log('')
 
 module.exports = memoization
