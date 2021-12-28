@@ -7,10 +7,12 @@ const memoization = (func) => {
     const key = createKey(params)
 
     if (cache.has(key)) return cache.get(key)
+    
+    const result = func(...params);
 
-    cache.set(key, func(...params))
+    cache.set(key, result)
 
-    return func(...params)
+    return result;
   }
 }
 

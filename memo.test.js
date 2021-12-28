@@ -13,7 +13,7 @@ test('how many times function was called', () => {
   memo(5, 10, 15, 20)
   memo(5, 10, 15, 20)
 
-  expect(resolve.mock.calls.length).toBe(2)
+  expect(resolve.mock.calls.length).toBe(1)
 })
 
 test('memoization by number', () => {
