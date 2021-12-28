@@ -10,7 +10,7 @@ const memoization = (func) => {
 
     cache.set(key, func(...params))
 
-    return params
+    return func(...params)
   }
 }
 
